@@ -11,38 +11,53 @@
         box-sizing: border-box;
     }
 
-    body {
+    html, body {
         margin: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
         min-height: 100vh;
         background:
-            radial-gradient(circle at 20% 20%, rgba(255,255,255,.35), transparent 25%),
-            radial-gradient(circle at 80% 80%, rgba(255,255,255,.25), transparent 25%),
-            linear-gradient(135deg, #ffd6e7, #f7b6d2, #f9cfe0);
+            radial-gradient(circle at 15% 15%, rgba(255,255,255,.45), transparent 25%),
+            radial-gradient(circle at 85% 85%, rgba(255,255,255,.35), transparent 25%),
+            linear-gradient(135deg, #ffd9e8, #f5b6d0, #f9cede);
+
         font-family: "Courier New", monospace;
         color: #5a1735;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
-        overflow: hidden;
+
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .window {
         width: min(700px, 95vw);
-        background: rgba(255, 245, 250, 0.94);
+
+        background: rgba(255, 247, 251, 0.95);
+
         border: 2px solid #7d294d;
         border-radius: 14px;
+
         box-shadow:
             0 20px 60px rgba(100, 20, 55, .25),
-            0 0 30px rgba(255, 255, 255, .5);
+            0 0 30px rgba(255,255,255,.5);
+
         overflow: hidden;
+
         position: relative;
     }
 
     .topbar {
         background: #7d294d;
         color: #ffe8f1;
+
         padding: 9px 14px;
+
         font-size: 13px;
         letter-spacing: 1px;
     }
@@ -61,87 +76,172 @@
     .title {
         color: #a32258;
         font-weight: bold;
-        font-size: 20px;
+
+        font-size: 21px;
+
         margin-bottom: 20px;
     }
 
     .alert {
         color: #b51f58;
+
         font-weight: bold;
+
         text-align: center;
-        margin: 20px 0 8px;
+
+        margin: 22px 0 8px;
+
         animation: pulse 1.5s infinite;
     }
 
     .event {
         text-align: center;
+
         font-size: 19px;
+
         font-weight: bold;
+
         color: #7d294d;
+
         margin-bottom: 20px;
     }
 
     .question {
-        margin-top: 28px;
+        margin-top: 30px;
+
         text-align: center;
+
         font-size: 18px;
+
         font-weight: bold;
     }
 
+    /*
+       Área onde ficam os botões.
+       O SIM agora usa position: fixed,
+       portanto pode perseguir o mouse pela página inteira.
+    */
+
     .buttons-area {
-        height: 190px;
+        height: 180px;
+
         position: relative;
+
         margin-top: 15px;
+
         border-radius: 15px;
     }
 
     button {
         font-family: "Courier New", monospace;
+
         cursor: pointer;
+
         border-radius: 10px;
+
         font-weight: bold;
-        transition: transform .15s ease, box-shadow .15s ease;
+
+        transition:
+            transform .15s ease,
+            box-shadow .15s ease;
     }
 
+
+    /* =========================
+       BOTÃO SIM
+       ========================= */
+
     #sim {
-        position: absolute;
+        position: fixed;
+
         left: 50%;
-        top: 45%;
+        top: 50%;
+
         transform: translate(-50%, -50%);
+
         background: #a32258;
+
         color: white;
+
         border: none;
+
         padding: 18px 38px;
+
         font-size: 22px;
-        box-shadow: 0 7px 20px rgba(163,34,88,.3);
-        z-index: 5;
+
+        box-shadow:
+            0 7px 20px rgba(163,34,88,.3);
+
+        z-index: 100;
+
+        white-space: nowrap;
     }
 
     #sim:hover {
-        box-shadow: 0 10px 30px rgba(163,34,88,.45);
-        transform: translate(-50%, -50%) scale(1.08);
+        box-shadow:
+            0 10px 30px rgba(163,34,88,.5);
+
+        transform: scale(1.08);
     }
+
+
+    /*
+       Quando o SIM finalmente é alcançado,
+       ele fica parado para poder ser clicado.
+    */
+
+    #sim.pego {
+        transform: translate(-50%, -50%) scale(1.08);
+
+        box-shadow:
+            0 10px 35px rgba(163,34,88,.55);
+    }
+
+
+    /* =========================
+       BOTÃO NÃO
+       ========================= */
 
     #nao {
         position: absolute;
+
         left: 76%;
         top: 72%;
-        background: rgba(255,255,255,.75);
+
+        background: rgba(255,255,255,.82);
+
         color: #7d294d;
+
         border: 1px solid #c57b9b;
-        padding: 6px 11px;
+
+        padding: 7px 13px;
+
         font-size: 12px;
-        opacity: .78;
-        z-index: 4;
+
+        opacity: .9;
+
+        z-index: 50;
+
+        white-space: nowrap;
     }
+
 
     .warning {
         text-align: center;
+
         font-size: 11px;
+
         color: #a32258;
+
         min-height: 20px;
+
         margin-top: -5px;
     }
+
+
+    /* =========================
+       SEGUNDA TELA
+       ========================= */
 
     #confirmacao {
         display: none;
@@ -149,44 +249,63 @@
 
     .heart {
         font-size: 48px;
+
         text-align: center;
+
         margin-bottom: 15px;
+
         animation: heartbeat 1.4s infinite;
     }
 
     .access {
         text-align: center;
+
         color: #a32258;
+
         font-size: 23px;
+
         font-weight: bold;
+
         margin: 15px 0;
     }
 
     .success {
         text-align: center;
+
         color: #7d294d;
+
         font-size: 18px;
+
         font-weight: bold;
+
         margin-bottom: 25px;
     }
 
     .message {
         line-height: 1.8;
+
         font-size: 15px;
     }
 
     .song {
         text-align: center;
+
         margin: 25px 0;
+
         padding: 15px;
+
         background: #ffe3ef;
+
         border: 1px solid #e4a4bd;
+
         border-radius: 10px;
     }
 
     .song a {
         color: #a32258;
+
         font-weight: bold;
+
         text-decoration: none;
     }
 
@@ -196,24 +315,58 @@
 
     .signature {
         text-align: right;
+
         margin-top: 25px;
+
         font-weight: bold;
+
         color: #a32258;
     }
 
+
+    /* =========================
+       ANIMAÇÕES
+       ========================= */
+
     @keyframes pulse {
-        0%,100% { opacity: 1; }
-        50% { opacity: .55; }
+
+        0%,100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .55;
+        }
+
     }
 
     @keyframes heartbeat {
-        0%,100% { transform: scale(1); }
-        15% { transform: scale(1.15); }
-        30% { transform: scale(1); }
-        45% { transform: scale(1.1); }
+
+        0%,100% {
+            transform: scale(1);
+        }
+
+        15% {
+            transform: scale(1.15);
+        }
+
+        30% {
+            transform: scale(1);
+        }
+
+        45% {
+            transform: scale(1.1);
+        }
+
     }
 
+
+    /* =========================
+       CELULAR
+       ========================= */
+
     @media (max-width: 600px) {
+
         .content {
             padding: 25px 18px 30px;
         }
@@ -232,11 +385,15 @@
 
         #sim {
             font-size: 20px;
+
             padding: 16px 30px;
         }
+
     }
+
 </style>
 </head>
+
 
 <body>
 
@@ -246,13 +403,17 @@
         $ date_night.exe
     </div>
 
-    <!-- PRIMEIRA TELA -->
+
+    <!-- ==================================
+         PRIMEIRA TELA
+         ================================== -->
+
     <div class="content" id="inicio">
 
         <div class="terminal">
 
             <div class="title">
-                Olá, Maysa.
+                Olá, princesa.
             </div>
 
             <div>
@@ -260,26 +421,36 @@
                 que precisa ser respondida imediatamente.
             </div>
 
+
             <div class="alert">
                 ⚠ ALERTA DE BREGUICE! ⚠
             </div>
+
 
             <div class="event">
                 EVENTO DETECTADO
             </div>
 
+
             <div>
+
                 Origem: um samba em dezembro<br>
+
                 Data de início: 08/03<br>
+
                 Status: namorando<br>
+
                 Próxima missão: DATE NIGHT
+
             </div>
 
         </div>
 
+
         <div class="question">
             Você aceita sair comigo hoje?
         </div>
+
 
         <div class="buttons-area" id="area">
 
@@ -287,60 +458,85 @@
                 SIM ❤️
             </button>
 
+
             <button id="nao">
-                não
+                NÃO
             </button>
 
         </div>
+
 
         <div class="warning" id="warning"></div>
 
     </div>
 
 
-    <!-- SEGUNDA TELA -->
+
+    <!-- ==================================
+         SEGUNDA TELA
+         ================================== -->
+
     <div class="content" id="confirmacao">
 
         <div class="heart">
             ❤️
         </div>
 
+
         <div class="access">
             ACCESS GRANTED ✓
         </div>
+
 
         <div class="success">
             Eu sabia que você escolheria a opção certa.
         </div>
 
+
         <div class="success">
             DATE CONFIRMADO ✓
         </div>
 
+
         <div class="message">
 
             📅 Hoje<br>
+
             🕐 Entre 19h e 20h<br>
+
             👩 Maysa<br>
+
             ❤️ Sua namorada
 
             <br><br>
 
             De um samba para um date.<br>
+
             Quem diria?
 
         </div>
 
+
+
         <div class="song">
+
             E agora uma música que combina com a ocasião:
+
             <br><br>
 
             🎵
-            <a href="https://www.youtube.com/watch?v=5Ff9wiZDCrU"
-               target="_blank">
+
+            <a
+                href="https://www.youtube.com/watch?v=5Ff9wiZDCrU"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Deixa Eu Falar Pra Você
             </a>
+
         </div>
+
+
 
         <div class="message">
 
@@ -369,9 +565,13 @@
 
         </div>
 
+
         <div class="signature">
+
             Com amor,<br>
+
             Mari.
+
         </div>
 
     </div>
@@ -379,94 +579,374 @@
 </div>
 
 
+
 <script>
 
+
+/* ==========================================
+   ELEMENTOS
+   ========================================== */
+
 const sim = document.getElementById("sim");
+
 const nao = document.getElementById("nao");
+
 const area = document.getElementById("area");
+
 const warning = document.getElementById("warning");
 
 
-// O NÃO foge quando o mouse chega perto
+
+/* ==========================================
+   CONFIGURAÇÃO
+   ========================================== */
+
+let simParado = false;
+
+let podeClicarSim = false;
+
+
+
+/* ==========================================
+   FRASES DO NÃO
+   ========================================== */
+
+const mensagens = [
+
+    "Essa opção não está disponível.",
+
+    "Boa tentativa.",
+
+    "Erro 404: Não encontrado.",
+
+    "Você realmente tentou?",
+
+    "Escolha outra opção.",
+
+    "Hmm... não.",
+
+    "Acho que você quis dizer SIM.",
+
+    "Acesso negado.",
+
+    "Essa opção foi descontinuada.",
+
+    "Você sabe que é SIM."
+
+];
+
+
+
+/* ==========================================
+   FAZER O NÃO FUGIR
+   ========================================== */
+
 function fugirDoNao() {
 
-    const areaRect = area.getBoundingClientRect();
+    const areaRect =
+        area.getBoundingClientRect();
 
-    const maxX = areaRect.width - nao.offsetWidth;
-    const maxY = areaRect.height - nao.offsetHeight;
 
-    const x = Math.max(
-        5,
-        Math.random() * maxX
-    );
+    const maxX =
+        areaRect.width - nao.offsetWidth - 5;
 
-    const y = Math.max(
-        5,
-        Math.random() * maxY
-    );
 
-    nao.style.left = x + "px";
-    nao.style.top = y + "px";
+    const maxY =
+        areaRect.height - nao.offsetHeight - 5;
 
-    const mensagens = [
-        "Essa opção não está disponível.",
-        "Boa tentativa.",
-        "Erro 404: Não encontrado.",
-        "Você realmente tentou?",
-        "Escolha outra opção.",
-        "Hmm... não.",
-        "Acho que você quis dizer SIM."
-    ];
+
+    const x =
+        Math.max(
+            5,
+            Math.random() * maxX
+        );
+
+
+    const y =
+        Math.max(
+            5,
+            Math.random() * maxY
+        );
+
+
+    nao.style.left =
+        x + "px";
+
+
+    nao.style.top =
+        y + "px";
+
 
     warning.textContent =
-        mensagens[Math.floor(Math.random() * mensagens.length)];
+        mensagens[
+            Math.floor(
+                Math.random() * mensagens.length
+            )
+        ];
+
 }
 
 
-// O NÃO foge quando o mouse chega perto dele
-area.addEventListener("mousemove", function(event) {
 
-    const naoRect = nao.getBoundingClientRect();
+/* ==========================================
+   O NÃO FOGE QUANDO O MOUSE CHEGA PERTO
+   ========================================== */
 
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
+document.addEventListener(
+    "mousemove",
+    function(event) {
 
-    const centroX = naoRect.left + naoRect.width / 2;
-    const centroY = naoRect.top + naoRect.height / 2;
+        const rect =
+            nao.getBoundingClientRect();
 
-    const distancia = Math.sqrt(
-        Math.pow(mouseX - centroX, 2) +
-        Math.pow(mouseY - centroY, 2)
-    );
 
-    if (distancia < 85) {
-        fugirDoNao();
+        const centroX =
+            rect.left +
+            rect.width / 2;
+
+
+        const centroY =
+            rect.top +
+            rect.height / 2;
+
+
+        const distancia =
+            Math.sqrt(
+
+                Math.pow(
+                    event.clientX - centroX,
+                    2
+                )
+
+                +
+
+                Math.pow(
+                    event.clientY - centroY,
+                    2
+                )
+
+            );
+
+
+        if (distancia < 90) {
+
+            fugirDoNao();
+
+        }
+
     }
-
-});
-
-
-// Funciona também no celular
-nao.addEventListener("pointerdown", function(event) {
-    event.preventDefault();
-    fugirDoNao();
-});
+);
 
 
-// Mesmo se conseguir clicar, o NÃO não funciona
-nao.addEventListener("click", function(event) {
-    event.preventDefault();
-    fugirDoNao();
-});
+
+/* ==========================================
+   SIM PERSEGUE O MOUSE
+   ========================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (simParado) {
+            return;
+        }
 
 
-// SIM é a única opção realmente funcional
-sim.addEventListener("click", function() {
+        const distancia = 75;
 
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("confirmacao").style.display = "block";
 
-});
+        const largura =
+            sim.offsetWidth;
+
+
+        const altura =
+            sim.offsetHeight;
+
+
+        let x =
+            event.clientX + distancia;
+
+
+        let y =
+            event.clientY + distancia;
+
+
+        /*
+           Impede o botão de sair da tela.
+        */
+
+        x =
+            Math.min(
+                x,
+                window.innerWidth -
+                largura -
+                10
+            );
+
+
+        y =
+            Math.min(
+                y,
+                window.innerHeight -
+                altura -
+                10
+            );
+
+
+        x =
+            Math.max(
+                10,
+                x
+            );
+
+
+        y =
+            Math.max(
+                10,
+                y
+            );
+
+
+        sim.style.left =
+            x + "px";
+
+
+        sim.style.top =
+            y + "px";
+
+
+        sim.style.transform =
+            "none";
+
+    }
+);
+
+
+
+/* ==========================================
+   QUANDO VOCÊ CONSEGUIR PEGAR O SIM
+   ELE PARA.
+   ========================================== */
+
+sim.addEventListener(
+    "mouseenter",
+    function() {
+
+        simParado = true;
+
+        podeClicarSim = true;
+
+        sim.classList.add("pego");
+
+        warning.textContent =
+            "VOCÊ PEGOU O SIM. AGORA CLIQUE. ❤️";
+
+    }
+);
+
+
+
+/* ==========================================
+   SE SAIR DO SIM ANTES DE CLICAR,
+   ELE VOLTA A FUGIR.
+   ========================================== */
+
+sim.addEventListener(
+    "mouseleave",
+    function() {
+
+        if (!podeClicarSim) {
+
+            simParado = false;
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   CLICAR NO SIM
+   ========================================== */
+
+sim.addEventListener(
+    "click",
+    function() {
+
+        document
+            .getElementById("inicio")
+            .style.display = "none";
+
+
+        document
+            .getElementById("confirmacao")
+            .style.display = "block";
+
+
+        /*
+           Devolve a rolagem normal da página.
+        */
+
+        document.body.style.overflow =
+            "auto";
+
+    }
+);
+
+
+
+/* ==========================================
+   NÃO NO CELULAR
+   ========================================== */
+
+nao.addEventListener(
+    "pointerdown",
+    function(event) {
+
+        event.preventDefault();
+
+        fugirDoNao();
+
+    }
+);
+
+
+
+/* ==========================================
+   GARANTE QUE O NÃO NUNCA FUNCIONE
+   ========================================== */
+
+nao.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        fugirDoNao();
+
+    }
+);
+
+
+
+/* ==========================================
+   COMPORTAMENTO MOBILE DO SIM
+   ========================================== */
+
+sim.addEventListener(
+    "touchstart",
+    function() {
+
+        simParado = true;
+
+        podeClicarSim = true;
+
+        sim.classList.add("pego");
+
+    }
+);
+
 
 </script>
 
