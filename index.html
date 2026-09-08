@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Maysa ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #080808;
+            color: #f5f5f5;
+            font-family: "Courier New", monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid #444;
+            border-radius: 12px;
+            padding: 30px;
+            background: #101010;
+            box-shadow: 0 0 40px rgba(255,255,255,0.08);
+        }
+
+        .top {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .heart {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .alert {
+            margin: 25px 0;
+            padding: 18px;
+            border: 1px solid #777;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .event {
+            margin-top: 25px;
+            line-height: 2;
+        }
+
+        .event span {
+            color: #aaa;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 1px solid #aaa;
+            background: #181818;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #252525;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success {
+            text-align: center;
+        }
+
+        .success h2 {
+            font-size: 30px;
+        }
+
+        .success .big-heart {
+            font-size: 70px;
+            margin: 20px 0;
+        }
+
+        .date-box {
+            border: 1px solid #555;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .music {
+            margin-top: 30px;
+        }
+
+        .music a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #aaa;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .music a:hover {
+            background: #252525;
+        }
+
+        .final {
+            margin-top: 35px;
+            font-family: Georgia, serif;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: Georgia, serif;
+            font-size: 22px;
+        }
+
+        @media (max-width: 600px) {
+            .terminal {
+                padding: 22px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <!-- PRIMEIRA TELA -->
+
+    <div id="inicio">
+
+        <div class="top">
+            $ date_night.exe
+        </div>
+
+        <div class="heart">
+            ♡
+        </div>
+
+        <h1>Olá, Maysa.</h1>
+
+        <p>
+            Tenho uma pergunta extremamente importante
+            que precisa ser respondida imediatamente.
+        </p>
+
+        <div class="alert">
+            ⚠ ALERTA DE BREGUICE! ⚠
+        </div>
+
+        <div class="event">
+            <strong>EVENTO DETECTADO</strong><br><br>
+
+            <span>Origem:</span> um samba 💃<br>
+            <span>Data de início:</span> 08/03 ❤️<br>
+            <span>Status:</span> namorando<br>
+            <span>Próxima missão:</span> DATE NIGHT
+        </div>
+
+        <p style="margin-top:30px;">
+            Você aceita sair comigo hoje?
+        </p>
+
+        <div class="buttons">
+
+            <button onclick="aceitar()">
+                SIM ❤️
+            </button>
+
+            <button onclick="aceitar()">
+                SIM ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEGUNDA TELA -->
+
+    <div id="confirmacao" class="hidden success">
+
+        <div class="top">
+            $ ./confirmar_date.sh
+        </div>
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h2>ACCESS GRANTED</h2>
+
+        <p>
+            Eu sabia que você escolheria a opção certa.
+        </p>
+
+        <div class="date-box">
+
+            <strong>DATE CONFIRMADO</strong>
+
+            <br><br>
+
+            📅 Hoje<br>
+            🕐 Entre 19h e 20h<br>
+            👩 Maysa<br>
+            ❤️ Sua namorada
+
+        </div>
+
+        <p>
+            De um samba para um date.
+            Quem diria?
+        </p>
+
+        <div class="music">
+
+            <p>
+                E já que estamos falando de nós...
+            </p>
+
+            <a href="COLOQUE_AQUI_O_LINK_DA_MUSICA"
+               target="_blank">
+                🎵 Deixa Eu Falar Pra Você
+            </a>
+
+        </div>
+
+        <div class="final">
+
+            <p>
+                Maysa,
+            </p>
+
+            <p>
+                Desde aquele samba em que a gente se conheceu,
+                muita coisa mudou.
+            </p>
+
+            <p>
+                Mas uma coisa continua igual:
+                eu ainda quero estar perto de você.
+            </p>
+
+            <p>
+                Então hoje eu tenho uma proposta muito simples:
+            </p>
+
+            <p>
+                você, eu, um date<br>
+                e uma noite só nossa. ❤️
+            </p>
+
+            <div class="signature">
+                Com amor,<br>
+                sua namorada.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function aceitar() {
+
+        document.getElementById("inicio").classList.add("hidden");
+
+        document.getElementById("confirmacao").classList.remove("hidden");
+
+    }
+
+</script>
+
+</body>
+</html>
