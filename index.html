@@ -2,23 +2,25 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>date_night.exe</title>
 
-
 <style>
+
+/* =========================
+   PÁGINA
+   ========================= */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+}
 
 body {
 
@@ -28,60 +30,61 @@ body {
 
     background:
         radial-gradient(
-            circle at 15% 20%,
-            rgba(255,255,255,.5),
+            circle at 10% 10%,
+            rgba(255,255,255,0.7),
             transparent 25%
         ),
         radial-gradient(
-            circle at 85% 80%,
-            rgba(255,255,255,.35),
+            circle at 90% 90%,
+            rgba(255,255,255,0.5),
             transparent 25%
         ),
         linear-gradient(
             135deg,
             #ffd9e8,
-            #f4b5cf,
-            #f9d4e3
+            #f5b7d0,
+            #f9d5e4
         );
-
-    font-family:
-        "Courier New",
-        monospace;
 
     color: #5a1735;
 
-    display: flex;
+    font-family: "Courier New", monospace;
 
-    justify-content: center;
+    padding: 30px 15px;
 
-    align-items: center;
-
-    padding: 20px;
-
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
+/* =========================
+   JANELA
+   ========================= */
+
 .window {
 
-    width: min(700px, 95vw);
+    width: 100%;
 
-    background:
-        rgba(255,247,251,.96);
+    max-width: 700px;
 
-    border:
-        2px solid #7d294d;
+    margin: 0 auto;
+
+    background: rgba(255, 248, 252, 0.96);
+
+    border: 2px solid #7d294d;
 
     border-radius: 14px;
 
     box-shadow:
-        0 20px 60px
-        rgba(100,20,55,.25);
+        0 20px 60px rgba(100, 20, 55, 0.25);
 
     overflow: hidden;
 
 }
 
+
+/* =========================
+   BARRA SUPERIOR
+   ========================= */
 
 .topbar {
 
@@ -98,13 +101,20 @@ body {
 }
 
 
+/* =========================
+   CONTEÚDO
+   ========================= */
+
 .content {
 
-    padding:
-        32px 28px 38px;
+    padding: 35px 30px;
 
 }
 
+
+/* =========================
+   TÍTULO
+   ========================= */
 
 .title {
 
@@ -114,10 +124,14 @@ body {
 
     font-weight: bold;
 
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
 }
 
+
+/* =========================
+   TEXTO
+   ========================= */
 
 .text {
 
@@ -130,15 +144,17 @@ body {
 }
 
 
+/* =========================
+   ALERTA
+   ========================= */
+
 .alert {
 
-    margin:
-        25px 0;
+    margin: 25px 0;
 
-    padding: 17px;
+    padding: 16px;
 
-    border:
-        1px solid #c06b91;
+    border: 1px solid #c16c91;
 
     border-radius: 9px;
 
@@ -148,17 +164,14 @@ body {
 
     font-weight: bold;
 
-}
-
-
-.event {
-
-    line-height: 2;
-
-    font-size: 15px;
+    animation: pulse 1.5s infinite;
 
 }
 
+
+/* =========================
+   EVENTO
+   ========================= */
 
 .event-title {
 
@@ -174,8 +187,22 @@ body {
 
 }
 
+.event {
+
+    line-height: 2;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================
+   PERGUNTA
+   ========================= */
 
 .question {
+
+    margin-top: 30px;
 
     text-align: center;
 
@@ -185,39 +212,39 @@ body {
 
     font-weight: bold;
 
-    margin-top: 32px;
-
     color: #6b1c40;
 
 }
 
 
-/* ===========================
-   ÁREA DOS BOTÕES
-   =========================== */
+/* =========================
+   BOTÕES
+   ========================= */
 
 .buttons {
 
-    height: 170px;
-
     position: relative;
+
+    height: 180px;
 
     margin-top: 20px;
 
 }
 
 
-/* ===========================
+/* =========================
    SIM
-   =========================== */
+   ========================= */
 
 #sim {
 
     position: absolute;
 
-    right: 20px;
+    right: 15px;
 
     bottom: 20px;
+
+    padding: 16px 30px;
 
     background: #a32258;
 
@@ -227,12 +254,7 @@ body {
 
     border-radius: 10px;
 
-    padding:
-        16px 30px;
-
-    font-family:
-        "Courier New",
-        monospace;
+    font-family: "Courier New", monospace;
 
     font-size: 19px;
 
@@ -241,32 +263,23 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 7px 18px
-        rgba(163,34,88,.3);
+        0 7px 18px rgba(163,34,88,0.3);
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        transform 0.2s ease;
 
-    z-index: 5;
 }
-
 
 #sim:hover {
 
-    transform:
-        scale(1.08);
-
-    box-shadow:
-        0 10px 25px
-        rgba(163,34,88,.45);
+    transform: scale(1.08);
 
 }
 
 
-/* ===========================
+/* =========================
    NÃO
-   =========================== */
+   ========================= */
 
 #nao {
 
@@ -276,37 +289,34 @@ body {
 
     bottom: 25px;
 
-    background:
-        rgba(255,255,255,.85);
+    padding: 7px 13px;
+
+    background: rgba(255,255,255,0.9);
 
     color: #7d294d;
 
-    border:
-        1px solid #c57b9b;
+    border: 1px solid #c57b9b;
 
     border-radius: 8px;
 
-    padding:
-        8px 14px;
-
-    font-family:
-        "Courier New",
-        monospace;
+    font-family: "Courier New", monospace;
 
     font-size: 13px;
 
     cursor: pointer;
 
-    z-index: 10;
-
-    transition:
-        left .18s ease,
-        top .18s ease;
-
 }
 
 
+/* =========================
+   FRASES ENGRAÇADAS
+   ========================= */
+
 .warning {
+
+    min-height: 25px;
+
+    margin-top: 5px;
 
     text-align: center;
 
@@ -314,14 +324,14 @@ body {
 
     font-size: 12px;
 
-    min-height: 20px;
+    font-weight: bold;
 
 }
 
 
-/* ===========================
-   CONFIRMAÇÃO
-   =========================== */
+/* =========================
+   SEGUNDA TELA
+   ========================= */
 
 #confirmacao {
 
@@ -336,13 +346,14 @@ body {
 
     font-size: 65px;
 
-    animation:
-        heartbeat 1.4s infinite;
+    animation: heartbeat 1.4s infinite;
 
 }
 
 
 .access {
+
+    margin-top: 15px;
 
     color: #a32258;
 
@@ -350,13 +361,12 @@ body {
 
     font-weight: bold;
 
-    margin:
-        15px 0 10px;
-
 }
 
 
 .confirmed {
+
+    margin-top: 10px;
 
     color: #7d294d;
 
@@ -373,12 +383,11 @@ body {
 
     padding: 20px;
 
-    border:
-        1px solid #d59ab3;
+    background: #ffe7f0;
+
+    border: 1px solid #d59ab3;
 
     border-radius: 10px;
-
-    background: #ffe7f0;
 
     text-align: left;
 
@@ -404,12 +413,11 @@ body {
 
     margin-top: 25px;
 
-    padding: 16px;
+    padding: 17px;
 
     background: #ffe1ed;
 
-    border:
-        1px solid #d59ab3;
+    border: 1px solid #d59ab3;
 
     border-radius: 10px;
 
@@ -444,16 +452,33 @@ body {
 
     font-size: 21px;
 
+    font-weight: bold;
+
     color: #a32258;
 
-    font-weight: bold;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+   ========================= */
+
+@keyframes pulse {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.55;
+    }
 
 }
 
 
 @keyframes heartbeat {
 
-    0%,100% {
+    0%, 100% {
         transform: scale(1);
     }
 
@@ -472,19 +497,23 @@ body {
 }
 
 
-/* ===========================
+/* =========================
    CELULAR
-   =========================== */
+   ========================= */
 
 @media (max-width: 600px) {
 
-    .content {
+    body {
 
-        padding:
-            25px 20px 30px;
+        padding: 15px 10px;
 
     }
 
+    .content {
+
+        padding: 25px 20px;
+
+    }
 
     .title {
 
@@ -492,13 +521,11 @@ body {
 
     }
 
-
     .text {
 
         font-size: 15px;
 
     }
-
 
     .question {
 
@@ -506,27 +533,17 @@ body {
 
     }
 
-
-    .buttons {
-
-        height: 190px;
-
-    }
-
-
     #sim {
 
         right: 5px;
 
         bottom: 15px;
 
-        padding:
-            15px 25px;
+        padding: 14px 25px;
 
         font-size: 17px;
 
     }
-
 
     #nao {
 
@@ -554,7 +571,6 @@ body {
         $ date_night.exe
 
     </div>
-
 
 
     <!-- =========================
@@ -591,6 +607,7 @@ body {
 
         <div class="event">
 
+
             <div class="event-title">
 
                 EVENTO DETECTADO
@@ -612,6 +629,7 @@ body {
 
             Próxima missão: DATE NIGHT
 
+
         </div>
 
 
@@ -628,16 +646,12 @@ body {
         >
 
 
-            <!-- ÚNICA OPÇÃO CLICÁVEL -->
-
             <button id="sim">
 
                 SIM ❤️
 
             </button>
 
-
-            <!-- OPÇÃO FALSA -->
 
             <button id="nao">
 
@@ -652,7 +666,9 @@ body {
         <div
             class="warning"
             id="warning"
-        ></div>
+        >
+
+        </div>
 
 
     </div>
@@ -660,7 +676,7 @@ body {
 
 
     <!-- =========================
-         SEGUNDA TELA
+         CONFIRMAÇÃO
          ========================= -->
 
     <div
@@ -787,9 +803,9 @@ body {
 <script>
 
 
-/* =================================
+/* =========================
    ELEMENTOS
-   ================================= */
+   ========================= */
 
 const sim =
     document.getElementById("sim");
@@ -804,20 +820,19 @@ const warning =
     document.getElementById("warning");
 
 
-
-/* =================================
+/* =========================
    FRASES
-   ================================= */
+   ========================= */
 
 const frases = [
 
-    "Essa opção não está disponível. 😌",
+    "Essa opção não está disponível.",
 
     "Boa tentativa.",
 
     "Erro 404: NÃO não encontrado.",
 
-    "Você realmente tentou? 😂",
+    "Você realmente tentou?",
 
     "Acho que você quis dizer SIM.",
 
@@ -825,53 +840,46 @@ const frases = [
 
     "Essa opção foi desativada.",
 
-    "Maysa, você sabe a resposta. ❤️"
+    "Princesa, você sabe a resposta. ❤️",
+
+    "Hmm... tenta o SIM.",
+
+    "Sistema recomenda: SIM ❤️"
 
 ];
 
 
+/* =========================
+   FAZER O NÃO FUGIR
+   ========================= */
 
-/* =================================
-   FUNÇÃO PARA O NÃO FUGIR
-   ================================= */
-
-function fugir() {
-
-
-    const largura =
-        buttons.clientWidth;
-
-
-    const altura =
-        buttons.clientHeight;
-
-
-    const larguraBotao =
-        nao.offsetWidth;
-
-
-    const alturaBotao =
-        nao.offsetHeight;
+function fugirDoNao() {
 
 
     const maxX =
-        largura -
-        larguraBotao;
+        buttons.clientWidth -
+        nao.offsetWidth -
+        5;
 
 
     const maxY =
-        altura -
-        alturaBotao;
+        buttons.clientHeight -
+        nao.offsetHeight -
+        5;
 
 
     const x =
-        Math.random() *
-        maxX;
+        Math.max(
+            5,
+            Math.random() * maxX
+        );
 
 
     const y =
-        Math.random() *
-        maxY;
+        Math.max(
+            5,
+            Math.random() * maxY
+        );
 
 
     nao.style.left =
@@ -885,46 +893,42 @@ function fugir() {
     warning.textContent =
         frases[
             Math.floor(
-                Math.random() *
-                frases.length
+                Math.random() * frases.length
             )
         ];
 
 }
 
 
-
-/* =================================
-   NÃO FOGE AO PASSAR O MOUSE
-   ================================= */
+/* =========================
+   MOUSE
+   ========================= */
 
 nao.addEventListener(
     "mouseenter",
-    fugir
+    fugirDoNao
 );
 
 
-
-/* =================================
-   NÃO FOGE AO TENTAR TOCAR
-   ================================= */
+/* =========================
+   CELULAR
+   ========================= */
 
 nao.addEventListener(
-    "pointerdown",
+    "touchstart",
     function(event) {
 
         event.preventDefault();
 
-        fugir();
+        fugirDoNao();
 
     }
 );
 
 
-
-/* =================================
-   NÃO NUNCA FUNCIONA
-   ================================= */
+/* =========================
+   NÃO NÃO PODE SER CLICADO
+   ========================= */
 
 nao.addEventListener(
     "click",
@@ -932,16 +936,15 @@ nao.addEventListener(
 
         event.preventDefault();
 
-        fugir();
+        fugirDoNao();
 
     }
 );
 
 
-
-/* =================================
-   SIM FUNCIONA NORMALMENTE
-   ================================= */
+/* =========================
+   SIM
+   ========================= */
 
 sim.addEventListener(
     "click",
@@ -950,23 +953,24 @@ sim.addEventListener(
 
         document
             .getElementById("inicio")
-            .style.display =
-            "none";
+            .style.display = "none";
 
 
         document
             .getElementById("confirmacao")
-            .style.display =
-            "block";
+            .style.display = "block";
 
 
-        document.body.style.overflow =
-            "auto";
+        /*
+           Libera a rolagem depois
+           da confirmação.
+        */
+
+        document.body.style.overflow = "auto";
 
 
     }
 );
-
 
 </script>
 
