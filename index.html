@@ -1,326 +1,909 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Para Maysa ❤️</title>
 
+
     <style>
+
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
             min-height: 100vh;
+
             background: #080808;
+
             color: #f5f5f5;
+
             font-family: "Courier New", monospace;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             padding: 20px;
+
         }
+
 
         .terminal {
+
             width: 100%;
+
             max-width: 700px;
-            border: 1px solid #444;
-            border-radius: 12px;
-            padding: 30px;
+
             background: #101010;
-            box-shadow: 0 0 40px rgba(255,255,255,0.08);
+
+            border: 1px solid #444;
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 0 40px rgba(255,255,255,0.08);
+
         }
+
 
         .top {
-            color: #888;
+
+            color: #777;
+
             font-size: 13px;
+
             margin-bottom: 30px;
+
         }
+
 
         .heart {
-            font-size: 45px;
-            margin-bottom: 20px;
+
+            font-size: 50px;
+
+            margin-bottom: 15px;
+
         }
+
 
         h1 {
+
             font-size: 28px;
+
             margin-bottom: 25px;
+
         }
+
 
         p {
+
             font-family: Arial, sans-serif;
+
             font-size: 17px;
+
             line-height: 1.7;
+
         }
+
 
         .alert {
+
             margin: 25px 0;
+
             padding: 18px;
+
             border: 1px solid #777;
+
             border-radius: 8px;
+
             text-align: center;
+
             font-weight: bold;
+
         }
+
 
         .event {
+
             margin-top: 25px;
+
             line-height: 2;
+
         }
+
 
         .event span {
-            color: #aaa;
+
+            color: #888;
+
         }
+
+
+        .question {
+
+            margin-top: 30px;
+
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* ÁREA DOS BOTÕES */
 
         .buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 35px;
-            flex-wrap: wrap;
+
+            position: relative;
+
+            width: 100%;
+
+            height: 150px;
+
+            margin-top: 25px;
+
         }
+
 
         button {
-            border: 1px solid #aaa;
-            background: #181818;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 8px;
+
             font-family: "Courier New", monospace;
-            font-size: 16px;
+
             cursor: pointer;
-            transition: 0.2s;
+
+            border-radius: 9px;
+
         }
 
-        button:hover {
-            transform: scale(1.05);
-            background: #252525;
+
+        /* SIM — FICA PARADO */
+
+        #sim {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: #f5f5f5;
+
+            color: #080808;
+
+            border: none;
+
+            padding: 16px 38px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            z-index: 1;
+
         }
+
+
+        #sim:hover {
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.05);
+
+        }
+
+
+        /* NÃO — PEQUENO E FUGITIVO */
+
+        #nao {
+
+            position: absolute;
+
+            left: 75%;
+
+            top: 75%;
+
+            background: transparent;
+
+            color: #666;
+
+            border: none;
+
+            padding: 5px 8px;
+
+            font-size: 11px;
+
+            z-index: 10;
+
+        }
+
+
+        #nao:hover {
+
+            color: #aaa;
+
+        }
+
+
+        .warning {
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 13px;
+
+            min-height: 20px;
+
+        }
+
+
+        /* TELA DE CONFIRMAÇÃO */
 
         .hidden {
+
             display: none;
+
         }
+
 
         .success {
+
             text-align: center;
+
         }
+
+
+        .big-heart {
+
+            font-size: 75px;
+
+            margin: 20px 0;
+
+        }
+
 
         .success h2 {
+
             font-size: 30px;
+
         }
 
-        .success .big-heart {
-            font-size: 70px;
-            margin: 20px 0;
-        }
 
         .date-box {
+
             border: 1px solid #555;
+
             border-radius: 10px;
-            padding: 20px;
+
+            padding: 22px;
+
             margin: 25px 0;
+
             text-align: left;
+
+            line-height: 1.9;
+
         }
+
 
         .music {
+
             margin-top: 30px;
+
         }
+
 
         .music a {
+
             display: inline-block;
+
             text-decoration: none;
+
             color: white;
+
             border: 1px solid #aaa;
+
             padding: 14px 20px;
+
             border-radius: 8px;
+
             margin-top: 10px;
+
         }
+
 
         .music a:hover {
+
             background: #252525;
+
         }
+
 
         .final {
+
             margin-top: 35px;
+
             font-family: Georgia, serif;
+
             font-size: 19px;
+
             line-height: 1.8;
+
         }
+
 
         .signature {
+
             margin-top: 30px;
+
             font-family: Georgia, serif;
+
             font-size: 22px;
+
         }
+
 
         @media (max-width: 600px) {
+
             .terminal {
-                padding: 22px;
+
+                padding: 23px;
+
             }
+
 
             h1 {
+
                 font-size: 23px;
+
             }
 
+
             p {
+
                 font-size: 16px;
+
             }
+
+
+            .question {
+
+                font-size: 20px;
+
+            }
+
+
+            .buttons {
+
+                height: 180px;
+
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <div class="terminal">
+
 
     <!-- PRIMEIRA TELA -->
 
+
     <div id="inicio">
 
+
         <div class="top">
+
             $ date_night.exe
+
         </div>
+
 
         <div class="heart">
+
             ♡
+
         </div>
 
-        <h1>Olá, Maysa.</h1>
+
+        <h1>
+
+            Olá, Maysa.
+
+        </h1>
+
 
         <p>
+
             Tenho uma pergunta extremamente importante
+
             que precisa ser respondida imediatamente.
+
         </p>
+
 
         <div class="alert">
+
             ⚠ ALERTA DE BREGUICE! ⚠
+
         </div>
+
 
         <div class="event">
-            <strong>EVENTO DETECTADO</strong><br><br>
 
-            <span>Origem:</span> um samba 💃<br>
-            <span>Data de início:</span> 08/03 ❤️<br>
-            <span>Status:</span> namorando<br>
-            <span>Próxima missão:</span> DATE NIGHT
+
+            <strong>
+
+                EVENTO DETECTADO
+
+            </strong>
+
+
+            <br><br>
+
+
+            <span>Origem:</span>
+
+            um samba 💃
+
+
+            <br>
+
+
+            <span>Data de início:</span>
+
+            08/03 ❤️
+
+
+            <br>
+
+
+            <span>Status:</span>
+
+            namorando
+
+
+            <br>
+
+
+            <span>Próxima missão:</span>
+
+            DATE NIGHT
+
+
         </div>
 
-        <p style="margin-top:30px;">
+
+        <div class="question">
+
             Você aceita sair comigo hoje?
-        </p>
+
+
+        </div>
+
 
         <div class="buttons">
 
-            <button onclick="aceitar()">
+
+            <!-- ÚNICO BOTÃO REALMENTE CLICÁVEL -->
+
+            <button id="sim">
+
                 SIM ❤️
+
             </button>
 
-            <button onclick="aceitar()">
-                SIM ❤️
+
+            <!-- BOTÃO FUGITIVO -->
+
+            <button id="nao">
+
+                não
+
             </button>
+
 
         </div>
 
+
+        <div
+            class="warning"
+            id="warning"
+        >
+
+            escolha sabiamente...
+
+        </div>
+
+
     </div>
+
 
 
     <!-- SEGUNDA TELA -->
 
-    <div id="confirmacao" class="hidden success">
+
+    <div
+        id="confirmacao"
+        class="hidden success"
+    >
+
 
         <div class="top">
+
             $ ./confirmar_date.sh
+
         </div>
+
 
         <div class="big-heart">
+
             ❤️
+
         </div>
 
-        <h2>ACCESS GRANTED</h2>
+
+        <h2>
+
+            ACCESS GRANTED
+
+        </h2>
+
 
         <p>
+
             Eu sabia que você escolheria a opção certa.
+
         </p>
+
 
         <div class="date-box">
 
-            <strong>DATE CONFIRMADO</strong>
+
+            <strong>
+
+                DATE CONFIRMADO ✓
+
+            </strong>
+
 
             <br><br>
 
-            📅 Hoje<br>
-            🕐 Entre 19h e 20h<br>
-            👩 Maysa<br>
+
+            📅 Hoje
+
+            <br>
+
+            🕐 Entre 19h e 20h
+
+            <br>
+
+            👩 Maysa
+
+            <br>
+
             ❤️ Sua namorada
+
 
         </div>
 
+
         <p>
+
             De um samba para um date.
+
+            <br>
+
             Quem diria?
+
         </p>
+
 
         <div class="music">
 
+
             <p>
-                E já que estamos falando de nós...
+
+                E agora uma música que combina
+                com a ocasião:
+
             </p>
 
-            <a href="COLOQUE_AQUI_O_LINK_DA_MUSICA"
-               target="_blank">
+
+            <a
+                href="https://www.youtube.com/watch?v=5Ff9wiZDCrU"
+                target="_blank"
+            >
+
                 🎵 Deixa Eu Falar Pra Você
+
             </a>
 
+
         </div>
+
 
         <div class="final">
 
+
             <p>
+
                 Maysa,
+
             </p>
 
-            <p>
-                Desde aquele samba em que a gente se conheceu,
-                muita coisa mudou.
-            </p>
 
             <p>
+
+                Desde aquele samba em que a gente
+                se conheceu, muita coisa mudou.
+
+            </p>
+
+
+            <p>
+
                 Mas uma coisa continua igual:
+
                 eu ainda quero estar perto de você.
+
             </p>
 
-            <p>
-                Então hoje eu tenho uma proposta muito simples:
-            </p>
 
             <p>
-                você, eu, um date<br>
+
+                Então hoje eu tenho uma proposta
+                muito simples:
+
+            </p>
+
+
+            <p>
+
+                você, eu, um date
+
+                <br>
+
                 e uma noite só nossa. ❤️
+
             </p>
+
 
             <div class="signature">
-                Com amor,<br>
+
+                Com amor,
+
+                <br>
+
                 sua namorada.
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 </div>
 
 
+
 <script>
 
-    function aceitar() {
 
-        document.getElementById("inicio").classList.add("hidden");
+    const nao =
+        document.getElementById("nao");
 
-        document.getElementById("confirmacao").classList.remove("hidden");
+
+    const warning =
+        document.getElementById("warning");
+
+
+    const area =
+        document.querySelector(".buttons");
+
+
+    const sim =
+        document.getElementById("sim");
+
+
+
+    /*
+       O NÃO FOGE
+    */
+
+
+    function fugirDoNao() {
+
+
+        const areaWidth =
+            area.clientWidth;
+
+
+        const areaHeight =
+            area.clientHeight;
+
+
+        const buttonWidth =
+            nao.offsetWidth;
+
+
+        const buttonHeight =
+            nao.offsetHeight;
+
+
+        /*
+           Mantém o botão dentro
+           da área dos botões
+        */
+
+
+        const maxX =
+            areaWidth - buttonWidth;
+
+
+        const maxY =
+            areaHeight - buttonHeight;
+
+
+        const randomX =
+            Math.random() * maxX;
+
+
+        const randomY =
+            Math.random() * maxY;
+
+
+        nao.style.left =
+            randomX + "px";
+
+
+        nao.style.top =
+            randomY + "px";
+
+
+        const mensagens = [
+
+            "não tão rápido 👀",
+
+            "quase...",
+
+            "ih, escapou 😌",
+
+            "essa opção está indisponível",
+
+            "Maysa, sério? 😂",
+
+            "você sabe que não vai conseguir",
+
+            "tenta o outro ❤️"
+
+        ];
+
+
+        const mensagem =
+            mensagens[
+                Math.floor(
+                    Math.random() * mensagens.length
+                )
+            ];
+
+
+        warning.textContent =
+            mensagem;
 
     }
 
+
+
+    /*
+       DESKTOP:
+       quando o mouse chega perto
+    */
+
+
+    nao.addEventListener(
+        "mouseenter",
+        fugirDoNao
+    );
+
+
+
+    /*
+       CELULAR:
+       quando ela tenta tocar
+    */
+
+
+    nao.addEventListener(
+        "touchstart",
+        function(event) {
+
+            event.preventDefault();
+
+            fugirDoNao();
+
+        }
+    );
+
+
+
+    /*
+       GARANTIA EXTRA:
+       se de alguma forma ela clicar,
+       o NÃO também foge.
+    */
+
+
+    nao.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            fugirDoNao();
+
+        }
+    );
+
+
+
+    /*
+       O SIM É O ÚNICO QUE FUNCIONA
+    */
+
+
+    sim.addEventListener(
+        "click",
+        function() {
+
+
+            document
+                .getElementById("inicio")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("confirmacao")
+                .classList.remove("hidden");
+
+
+        }
+    );
+
+
 </script>
 
+
 </body>
+
 </html>
