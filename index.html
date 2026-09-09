@@ -2,220 +2,198 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>date_night.exe</title>
 
+
 <style>
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+   ================================= */
 
 * {
     box-sizing: border-box;
 }
 
-html {
+
+html,
+body {
+    margin: 0;
+    width: 100%;
     min-height: 100%;
 }
 
+
 body {
-    margin: 0;
+
     min-height: 100vh;
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(255,255,255,0.7),
+            circle at 15% 15%,
+            rgba(255,255,255,.45),
             transparent 25%
         ),
         radial-gradient(
-            circle at 90% 90%,
-            rgba(255,255,255,0.5),
+            circle at 85% 85%,
+            rgba(255,255,255,.35),
             transparent 25%
         ),
         linear-gradient(
             135deg,
             #ffd9e8,
-            #f5b7d0,
-            #f9d5e4
+            #f5b6d0,
+            #f9cede
         );
-
-    color: #5a1735;
 
     font-family: "Courier New", monospace;
 
-    padding: 30px 15px;
+    color: #5a1735;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
 
     overflow-x: hidden;
+
+    overflow-y: auto;
 }
 
 
-/* =========================
-   JANELA
-   ========================= */
+/* =================================
+   TELA DA SENHA
+   ================================= */
 
-.window {
-    width: 100%;
-    max-width: 700px;
+#senhaTela {
 
-    margin: 0 auto;
+    position: fixed;
 
-    background: rgba(255, 248, 252, 0.96);
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.5),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #ffd9e8,
+            #f5b6d0,
+            #f9cede
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+
+.senhaCaixa {
+
+    width: min(400px, 90vw);
+
+    background: rgba(255,247,251,.97);
 
     border: 2px solid #7d294d;
 
     border-radius: 14px;
 
+    padding: 35px 25px;
+
+    text-align: center;
+
     box-shadow:
-        0 20px 60px rgba(100, 20, 55, 0.25);
-
-    overflow: hidden;
+        0 20px 60px
+        rgba(100,20,55,.25);
 }
 
 
-/* =========================
-   BARRA SUPERIOR
-   ========================= */
+.senhaIcone {
 
-.topbar {
-    background: #7d294d;
+    font-size: 45px;
 
-    color: #ffe8f1;
-
-    padding: 10px 15px;
-
-    font-size: 13px;
-
-    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 
-/* =========================
-   CONTEÚDO
-   ========================= */
+.senhaCaixa h2 {
 
-.content {
-    padding: 35px 30px;
-}
-
-
-/* =========================
-   TÍTULO
-   ========================= */
-
-.title {
     color: #a32258;
-
-    font-size: 23px;
-
-    font-weight: bold;
 
     margin-bottom: 20px;
+
+    font-size: 22px;
 }
 
 
-/* =========================
-   TEXTO
-   ========================= */
-
-.text {
-    font-family: Arial, sans-serif;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================
-   ALERTA
-   ========================= */
-
-.alert {
-    margin: 25px 0;
-
-    padding: 16px;
-
-    border: 1px solid #c16c91;
-
-    border-radius: 9px;
-
-    text-align: center;
-
-    color: #a32258;
-
-    font-weight: bold;
-
-    animation: pulse 1.5s infinite;
-}
-
-
-/* =========================
-   EVENTO
-   ========================= */
-
-.event-title {
-    text-align: center;
+.senhaCaixa p {
 
     color: #7d294d;
 
-    font-size: 19px;
+    font-family: Arial, sans-serif;
 
-    font-weight: bold;
-
-    margin-bottom: 15px;
-}
-
-.event {
-    line-height: 2;
-
-    font-size: 15px;
+    line-height: 1.5;
 }
 
 
-/* =========================
-   PERGUNTA
-   ========================= */
+.senhaCaixa strong {
 
-.question {
-    margin-top: 30px;
+    color: #a32258;
+
+    font-size: 18px;
+}
+
+
+#senha {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin: 10px 0 15px;
+
+    border: 1px solid #c57b9b;
+
+    border-radius: 8px;
+
+    font-size: 16px;
 
     text-align: center;
 
-    font-family: Georgia, serif;
-
-    font-size: 23px;
-
-    font-weight: bold;
-
-    color: #6b1c40;
+    outline: none;
 }
 
 
-/* =========================
-   BOTÕES
-   ========================= */
+#senha:focus {
 
-.buttons {
-    position: relative;
+    border-color: #a32258;
 
-    height: 180px;
-
-    margin-top: 20px;
+    box-shadow:
+        0 0 0 3px
+        rgba(163,34,88,.1);
 }
 
 
-/* =========================
-   SIM
-   ========================= */
-
-#sim {
-    position: absolute;
-
-    right: 15px;
-
-    bottom: 20px;
-
-    padding: 16px 30px;
+.senhaCaixa button {
 
     background: #a32258;
 
@@ -223,95 +201,309 @@ body {
 
     border: none;
 
-    border-radius: 10px;
+    padding: 13px 25px;
 
-    font-family: "Courier New", monospace;
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-weight: bold;
+}
+
+
+.senhaCaixa button:hover {
+
+    transform: scale(1.04);
+
+}
+
+
+#erro {
+
+    color: #b51f58;
+
+    font-size: 13px;
+
+    margin-top: 15px;
+
+    min-height: 18px;
+}
+
+
+/* =================================
+   JANELA PRINCIPAL
+   ================================= */
+
+.window {
+
+    width: min(700px, 95vw);
+
+    background:
+        rgba(255,247,251,.95);
+
+    border: 2px solid #7d294d;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(100,20,55,.25),
+
+        0 0 30px
+        rgba(255,255,255,.5);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.topbar {
+
+    background: #7d294d;
+
+    color: #ffe8f1;
+
+    padding: 9px 14px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+.content {
+
+    padding:
+        32px 28px 38px;
+
+    text-align: center;
+}
+
+
+.terminal {
+
+    text-align: left;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+.title {
+
+    color: #a32258;
+
+    font-weight: bold;
+
+    font-size: 21px;
+
+    margin-bottom: 20px;
+}
+
+
+.alert {
+
+    color: #b51f58;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin: 22px 0 8px;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+
+.event {
+
+    text-align: center;
 
     font-size: 19px;
 
     font-weight: bold;
 
-    cursor: pointer;
-
-    box-shadow:
-        0 7px 18px rgba(163,34,88,0.3);
-
-    transition:
-        transform 0.2s ease;
-}
-
-#sim:hover {
-    transform: scale(1.08);
-}
-
-
-/* =========================
-   NÃO
-   ========================= */
-
-#nao {
-    position: absolute;
-
-    left: 20px;
-
-    bottom: 25px;
-
-    padding: 7px 13px;
-
-    background: rgba(255,255,255,0.9);
-
     color: #7d294d;
 
-    border: 1px solid #c57b9b;
-
-    border-radius: 8px;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    z-index: 10;
-
-    transition:
-        left 0.18s ease,
-        top 0.18s ease;
+    margin-bottom: 20px;
 }
 
 
-/* =========================
-   FRASES ENGRAÇADAS
-   ========================= */
+.question {
 
-.warning {
-    min-height: 25px;
-
-    margin-top: 5px;
+    margin-top: 30px;
 
     text-align: center;
 
-    color: #a32258;
-
-    font-size: 12px;
+    font-size: 18px;
 
     font-weight: bold;
 }
 
 
-/* =========================
-   SEGUNDA TELA
-   ========================= */
+/* =================================
+   ÁREA DOS BOTÕES
+   ================================= */
 
-#confirmacao {
-    display: none;
+.buttons-area {
+
+    height: 180px;
+
+    position: relative;
+
+    margin-top: 15px;
+
+    border-radius: 15px;
+}
+
+
+/* =================================
+   BOTÃO SIM
+   ================================= */
+
+#sim {
+
+    position: fixed;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: #a32258;
+
+    color: white;
+
+    border: none;
+
+    padding:
+        18px 38px;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(163,34,88,.3);
+
+    z-index: 100;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-weight: bold;
+
+    border-radius: 10px;
+
+    transition:
+        left .12s ease,
+        top .12s ease,
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+
+#sim.pego {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.08);
+
+    box-shadow:
+        0 10px 35px
+        rgba(163,34,88,.55);
+}
+
+
+/* =================================
+   BOTÃO NÃO
+   ================================= */
+
+#nao {
+
+    position: absolute;
+
+    left: 76%;
+
+    top: 72%;
+
+    background:
+        rgba(255,255,255,.82);
+
+    color: #7d294d;
+
+    border:
+        1px solid #c57b9b;
+
+    padding:
+        7px 13px;
+
+    font-size: 12px;
+
+    opacity: .9;
+
+    z-index: 50;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-weight: bold;
+
+    border-radius: 8px;
+}
+
+
+.warning {
 
     text-align: center;
+
+    font-size: 11px;
+
+    color: #a32258;
+
+    min-height: 20px;
+
+    margin-top: -5px;
+}
+
+
+/* =================================
+   CONFIRMAÇÃO
+   ================================= */
+
+#confirmacao {
+
+    display: none;
 }
 
 
 .heart {
-    font-size: 65px;
+
+    font-size: 48px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
 
     animation:
         heartbeat 1.4s infinite;
@@ -319,81 +511,60 @@ body {
 
 
 .access {
-    margin-top: 15px;
+
+    text-align: center;
 
     color: #a32258;
 
-    font-size: 25px;
+    font-size: 23px;
 
     font-weight: bold;
+
+    margin: 15px 0;
 }
 
 
-.confirmed {
-    margin-top: 10px;
+.success {
+
+    text-align: center;
 
     color: #7d294d;
 
     font-size: 18px;
 
     font-weight: bold;
+
+    margin-bottom: 25px;
 }
 
-
-/* =========================
-   INFORMAÇÕES DO DATE
-   ========================= */
-
-.date-box {
-    margin-top: 25px;
-
-    padding: 20px;
-
-    background: #ffe7f0;
-
-    border: 1px solid #d59ab3;
-
-    border-radius: 10px;
-
-    text-align: left;
-
-    line-height: 1.9;
-}
-
-
-/* =========================
-   MENSAGEM
-   ========================= */
 
 .message {
-    margin-top: 25px;
-
-    font-family: Georgia, serif;
-
-    font-size: 18px;
 
     line-height: 1.8;
+
+    font-size: 15px;
 }
 
 
-/* =========================
-   MÚSICA
-   ========================= */
-
 .song {
-    margin-top: 25px;
 
-    padding: 17px;
+    text-align: center;
 
-    background: #ffe1ed;
+    margin: 25px 0;
 
-    border: 1px solid #d59ab3;
+    padding: 15px;
+
+    background: #ffe3ef;
+
+    border:
+        1px solid #e4a4bd;
 
     border-radius: 10px;
 }
 
 
 .song a {
+
     color: #a32258;
 
     font-weight: bold;
@@ -403,22 +574,16 @@ body {
 
 
 .song a:hover {
+
     text-decoration: underline;
 }
 
 
-/* =========================
-   ASSINATURA
-   ========================= */
-
 .signature {
-    margin-top: 30px;
 
     text-align: right;
 
-    font-family: Georgia, serif;
-
-    font-size: 21px;
+    margin-top: 25px;
 
     font-weight: bold;
 
@@ -426,18 +591,18 @@ body {
 }
 
 
-/* =========================
+/* =================================
    ANIMAÇÕES
-   ========================= */
+   ================================= */
 
 @keyframes pulse {
 
-    0%, 100% {
+    0%,100% {
         opacity: 1;
     }
 
     50% {
-        opacity: 0.55;
+        opacity: .55;
     }
 
 }
@@ -445,7 +610,7 @@ body {
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
 
@@ -464,46 +629,48 @@ body {
 }
 
 
-/* =========================
+/* =================================
    CELULAR
-   ========================= */
+   ================================= */
 
 @media (max-width: 600px) {
 
-    body {
-        padding: 15px 10px;
-    }
-
     .content {
-        padding: 25px 20px;
+
+        padding:
+            25px 18px 30px;
+
     }
 
-    .title {
-        font-size: 21px;
+
+    .terminal {
+
+        font-size: 13px;
+
     }
 
-    .text {
-        font-size: 15px;
-    }
 
     .question {
-        font-size: 20px;
+
+        font-size: 16px;
+
     }
+
+
+    .buttons-area {
+
+        height: 210px;
+
+    }
+
 
     #sim {
-        right: 5px;
 
-        bottom: 15px;
+        font-size: 20px;
 
-        padding: 14px 25px;
+        padding:
+            16px 30px;
 
-        font-size: 17px;
-    }
-
-    #nao {
-        left: 5px;
-
-        bottom: 20px;
     }
 
 }
@@ -516,6 +683,67 @@ body {
 <body>
 
 
+<!-- =================================
+     TELA DE SENHA
+     ================================= -->
+
+<div id="senhaTela">
+
+    <div class="senhaCaixa">
+
+        <div class="senhaIcone">
+            🔐
+        </div>
+
+
+        <h2>
+            ACESSO RESTRITO
+        </h2>
+
+
+        <p>
+            Este site é
+        </p>
+
+
+        <strong>
+            EXCLUSIVAMENTE PARA MAYSA ❤️
+        </strong>
+
+
+        <p>
+            Digite a senha:
+        </p>
+
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Digite aqui..."
+            autocomplete="off"
+        >
+
+
+        <br>
+
+
+        <button onclick="entrar()">
+            ENTRAR ❤️
+        </button>
+
+
+        <div id="erro"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     JANELA PRINCIPAL
+     ================================= -->
+
 <div class="window">
 
 
@@ -527,9 +755,9 @@ body {
 
 
 
-    <!-- =========================
+    <!-- =================================
          PRIMEIRA TELA
-         ========================= -->
+         ================================= -->
 
     <div
         class="content"
@@ -537,66 +765,77 @@ body {
     >
 
 
-        <div class="title">
-
-            Olá, princesa.
-
-        </div>
+        <div class="terminal">
 
 
-        <div class="text">
+            <div class="title">
 
-            Tenho uma pergunta extremamente importante
-            que precisa ser respondida imediatamente.
+                Olá, princesa.
 
-        </div>
-
-
-        <div class="alert">
-
-            ⚠ ALERTA DE BREGUICE! ⚠
-
-        </div>
+            </div>
 
 
-        <div class="event">
+            <div>
+
+                Tenho uma pergunta
+                extremamente importante
+
+                <br>
+
+                que precisa ser respondida
+                imediatamente.
+
+            </div>
 
 
-            <div class="event-title">
+            <div class="alert">
+
+                ⚠ ALERTA DE BREGUICE! ⚠
+
+            </div>
+
+
+            <div class="event">
 
                 EVENTO DETECTADO
 
             </div>
 
 
-            Origem: um samba em dezembro
+            <div>
 
-            <br>
+                Origem: um samba em dezembro
 
-            Data de início: 08/03
+                <br>
 
-            <br>
+                Data de início: 08/03
 
-            Status: namorando
+                <br>
 
-            <br>
+                Status: namorando
 
-            Próxima missão: DATE NIGHT
+                <br>
+
+                Próxima missão: DATE NIGHT
+
+            </div>
 
 
         </div>
+
 
 
         <div class="question">
 
-            Quer ter um date comigo hoje?
+            Você aceita sair comigo hoje?
 
         </div>
 
 
+
         <div
-            class="buttons"
-            id="buttons"
+            class="buttons-area"
+            id="area"
         >
 
 
@@ -617,21 +856,20 @@ body {
         </div>
 
 
+
         <div
             class="warning"
             id="warning"
-        >
-
-        </div>
+        ></div>
 
 
     </div>
 
 
 
-    <!-- =========================
+    <!-- =================================
          SEGUNDA TELA
-         ========================= -->
+         ================================= -->
 
     <div
         class="content"
@@ -653,49 +891,58 @@ body {
         </div>
 
 
-        <div class="confirmed">
+        <div class="success">
 
-            DATE CONFIRMADO!
+            Eu sabia que você escolheria
+            a opção certa.
 
         </div>
 
 
-        <div class="date-box">
+        <div class="success">
 
-            📅 <strong>Hoje</strong>
-
-            <br>
-
-            🕐 <strong>Entre 19h e 20h</strong>
-
-            <br>
-
-            📍 <strong>Local: na sua casa</strong>
-
-            <br>
-
-            👩 <strong>Maysa</strong>
-
-            <br>
-
-            ❤️ <strong>Sua namorada</strong>
+            DATE CONFIRMADO ✓
 
         </div>
 
 
         <div class="message">
 
-            De um samba em dezembro
-            para um date hoje.
+            📅 Hoje
+
+            <br>
+
+            🕐 Entre 19h e 20h
+
+            <br>
+
+            👩 Maysa
+
+            <br>
+
+            ❤️ Sua namorada
+
 
             <br><br>
+
+
+            De um samba para um date.
+
+            <br>
 
             Quem diria?
 
         </div>
 
 
+
         <div class="song">
+
+            E agora uma música que combina
+            com a ocasião:
+
+            <br><br>
+
 
             🎵
 
@@ -712,29 +959,39 @@ body {
         </div>
 
 
+
         <div class="message">
 
             Maysa,
 
             <br><br>
 
-            Desde aquele samba em que a gente se conheceu,
-            muita coisa mudou.
+
+            Desde aquele samba em que a gente
+            se conheceu, muita coisa mudou.
 
             <br><br>
 
+
             Mas uma coisa continua igual:
+
             eu ainda quero estar perto de você.
 
             <br><br>
 
-            Então hoje eu tenho uma proposta muito simples:
+
+            Então hoje eu tenho uma proposta
+            muito simples:
 
             <br><br>
 
+
             <strong>
 
-                você, eu, um date<br>
+                você, eu, um date
+
+                <br>
+
                 e uma noite só nossa. ❤️
 
             </strong>
@@ -742,9 +999,12 @@ body {
         </div>
 
 
+
         <div class="signature">
 
-            Com amor,<br>
+            Com amor,
+
+            <br>
 
             Mari.
 
@@ -761,67 +1021,165 @@ body {
 <script>
 
 
-/* =========================
+/* ==========================================
+   SENHA
+   ========================================== */
+
+const SENHA_CORRETA =
+    "01081990";
+
+
+function entrar() {
+
+    const campo =
+        document.getElementById("senha");
+
+
+    const senhaDigitada =
+        campo.value;
+
+
+    const erro =
+        document.getElementById("erro");
+
+
+    if (
+        senhaDigitada ===
+        SENHA_CORRETA
+    ) {
+
+
+        document
+            .getElementById("senhaTela")
+            .style.display = "none";
+
+
+        campo.value = "";
+
+        erro.textContent = "";
+
+    }
+
+    else {
+
+
+        erro.textContent =
+            "Senha incorreta. Tente novamente. ❤️";
+
+
+        campo.value = "";
+
+        campo.focus();
+
+    }
+
+}
+
+
+/* ENTER TAMBÉM FUNCIONA */
+
+document
+    .getElementById("senha")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                entrar();
+
+            }
+
+        }
+    );
+
+
+
+/* ==========================================
    ELEMENTOS
-   ========================= */
+   ========================================== */
 
 const sim =
     document.getElementById("sim");
 
+
 const nao =
     document.getElementById("nao");
 
-const buttons =
-    document.getElementById("buttons");
+
+const area =
+    document.getElementById("area");
+
 
 const warning =
     document.getElementById("warning");
 
 
-/* =========================
-   FRASES ENGRAÇADAS
-   ========================= */
 
-const frases = [
+/* ==========================================
+   ESTADO DO SIM
+   ========================================== */
+
+let simParado = false;
+
+let podeClicarSim = false;
+
+
+
+/* ==========================================
+   FRASES DO SISTEMA
+   ========================================== */
+
+const mensagens = [
 
     "Essa opção não está disponível.",
 
     "Boa tentativa.",
 
-    "Erro 404: NÃO não encontrado.",
+    "Erro 404: Não encontrado.",
 
     "Você realmente tentou?",
 
+    "Escolha outra opção.",
+
+    "Hmm... não.",
+
     "Acho que você quis dizer SIM.",
 
-    "Escolha sabiamente...",
+    "Acesso negado.",
 
-    "Essa opção foi desativada.",
+    "Essa opção foi descontinuada.",
 
-    "Princesa, você sabe a resposta. ❤️",
-
-    "Hmm... tenta o SIM.",
-
-    "Sistema recomenda: SIM ❤️"
+    "Você sabe que é SIM."
 
 ];
 
 
-/* =========================
+
+/* ==========================================
    FAZER O NÃO FUGIR
-   ========================= */
+   ========================================== */
 
 function fugirDoNao() {
 
+
+    const rect =
+        area.getBoundingClientRect();
+
+
     const maxX =
-        buttons.clientWidth -
+        rect.width -
         nao.offsetWidth -
         5;
 
+
     const maxY =
-        buttons.clientHeight -
+        rect.height -
         nao.offsetHeight -
         5;
+
 
     const x =
         Math.max(
@@ -829,90 +1187,321 @@ function fugirDoNao() {
             Math.random() * maxX
         );
 
+
     const y =
         Math.max(
             5,
             Math.random() * maxY
         );
 
+
     nao.style.left =
         x + "px";
+
 
     nao.style.top =
         y + "px";
 
+
     warning.textContent =
-        frases[
+        mensagens[
             Math.floor(
-                Math.random() * frases.length
+                Math.random() *
+                mensagens.length
             )
         ];
 
 }
 
 
-/* =========================
-   NÃO FOGE COM O MOUSE
-   ========================= */
 
-nao.addEventListener(
+/* ==========================================
+   NÃO FOGE DO CURSOR
+   ========================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+
+        const rect =
+            nao.getBoundingClientRect();
+
+
+        const centroX =
+            rect.left +
+            rect.width / 2;
+
+
+        const centroY =
+            rect.top +
+            rect.height / 2;
+
+
+        const distancia =
+            Math.sqrt(
+
+                Math.pow(
+                    event.clientX -
+                    centroX,
+                    2
+                )
+
+                +
+
+                Math.pow(
+                    event.clientY -
+                    centroY,
+                    2
+                )
+
+            );
+
+
+        if (
+            distancia < 85
+        ) {
+
+            fugirDoNao();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   SIM PERSEGUE O CURSOR
+   ========================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+
+        if (simParado) {
+
+            return;
+
+        }
+
+
+        /*
+           O SIM fica um pouco
+           à frente do cursor.
+        */
+
+        const distancia = 75;
+
+
+        const largura =
+            sim.offsetWidth;
+
+
+        const altura =
+            sim.offsetHeight;
+
+
+        let x =
+            event.clientX +
+            distancia;
+
+
+        let y =
+            event.clientY +
+            distancia;
+
+
+        /*
+           Não deixa sair
+           da tela.
+        */
+
+        x =
+            Math.min(
+                x,
+                window.innerWidth -
+                largura -
+                10
+            );
+
+
+        y =
+            Math.min(
+                y,
+                window.innerHeight -
+                altura -
+                10
+            );
+
+
+        x =
+            Math.max(
+                10,
+                x
+            );
+
+
+        y =
+            Math.max(
+                10,
+                y
+            );
+
+
+        sim.style.left =
+            x + "px";
+
+
+        sim.style.top =
+            y + "px";
+
+
+        sim.style.transform =
+            "none";
+
+    }
+);
+
+
+
+/* ==========================================
+   QUANDO O CURSOR ALCANÇA O SIM
+   ========================================== */
+
+sim.addEventListener(
     "mouseenter",
-    fugirDoNao
-);
+    function() {
 
 
-/* =========================
-   NÃO FOGE NO CELULAR
-   ========================= */
+        simParado = true;
 
-nao.addEventListener(
-    "touchstart",
-    function(event) {
-
-        event.preventDefault();
-
-        fugirDoNao();
-
-    }
-);
+        podeClicarSim = true;
 
 
-/* =========================
-   NÃO NUNCA FUNCIONA
-   ========================= */
+        sim.classList.add(
+            "pego"
+        );
 
-nao.addEventListener(
-    "click",
-    function(event) {
 
-        event.preventDefault();
-
-        fugirDoNao();
+        warning.textContent =
+            "VOCÊ PEGOU O SIM. AGORA CLIQUE. ❤️";
 
     }
 );
 
 
-/* =========================
-   SIM FUNCIONA
-   ========================= */
+
+/* ==========================================
+   SE SAIR DO SIM
+   ========================================== */
+
+sim.addEventListener(
+    "mouseleave",
+    function() {
+
+
+        /*
+           Depois que o cursor
+           alcançou o botão,
+           ele continua parado.
+        */
+
+        if (!podeClicarSim) {
+
+            simParado = false;
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   CLICAR NO SIM
+   ========================================== */
 
 sim.addEventListener(
     "click",
     function() {
 
+
         document
             .getElementById("inicio")
             .style.display = "none";
+
 
         document
             .getElementById("confirmacao")
             .style.display = "block";
 
-        document.body.style.overflow = "auto";
+
+        sim.style.display =
+            "none";
+
+
+        document.body.style.overflow =
+            "auto";
 
     }
 );
+
+
+
+/* ==========================================
+   NÃO NO CELULAR
+   ========================================== */
+
+nao.addEventListener(
+    "pointerdown",
+    function(event) {
+
+        event.preventDefault();
+
+        fugirDoNao();
+
+    }
+);
+
+
+
+/* ==========================================
+   GARANTE QUE O NÃO
+   NUNCA FUNCIONE
+   ========================================== */
+
+nao.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        fugirDoNao();
+
+    }
+);
+
+
+
+/* ==========================================
+   SIM NO CELULAR
+   ========================================== */
+
+sim.addEventListener(
+    "touchstart",
+    function() {
+
+        simParado = true;
+
+        podeClicarSim = true;
+
+        sim.classList.add("pego");
+
+    }
+);
+
 
 </script>
 
